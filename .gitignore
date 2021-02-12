@@ -5,6 +5,7 @@ logs
 npm-debug.log*
 package-lock.json
 webpack.config
+public/
 node_modules/
 public/build/
 .sass-cache/
