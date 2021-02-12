@@ -3,7 +3,7 @@ import Paper from "../../containers/Paper";
 import { MovieDetailsContainer, MoviePosterImg, MovieDetailsTable, MovieElement } from "../material_ui/DetailsContent";
 import Rating from "../../containers/Rating";
 
-const DetailsContent = ({ movie_details }) => {
+const DetailsContent = ({ movie_details, error }) => {
   const deleteMovie = false
   return (
   <Paper content>
@@ -27,6 +27,9 @@ const DetailsContent = ({ movie_details }) => {
           <p style={{textAlign: "justify"}}>{movie_details.plot}</p>
         </MovieElement>
       </MovieDetailsContainer>
+    )}
+    {error && (
+      <div>Error with server connection</div>
     )}
   </Paper>
 )

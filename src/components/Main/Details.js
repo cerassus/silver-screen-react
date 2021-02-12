@@ -9,14 +9,13 @@ const Details = ({ movie_id, switchLoader, recentSearchResponse, ...rest }) => {
   const { response, error, loading } = useFetchGet(`movieDetails?id=${movie_id}`)
   useEffect(() => {
     switchLoader()
-    console.log(rest)
   }, [loading])
   return (
     <>
       <Paper>
-        <Typography center variant="h4" >{response.title}</Typography>
+        <Typography center variant="h4" >{response.title || "Error"}</Typography>
       </Paper>
-      <DetailsContent movie_details={response} />
+      <DetailsContent movie_details={response} error={error} />
       {/* <SimilarContent recentSearchResponse={recentSearchResponse} movie_details={response} /> */}
     </>
   )

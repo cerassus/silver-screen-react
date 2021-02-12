@@ -35,6 +35,7 @@ export default ({ login_form, loginUser, switchTab }) => {
     }
   }
   useEffect(() => {
+    error && setModalContentAndShow("Error connecting to the server!")
     if(response.token) {
       loginUser(response)
       Cookies.set("token", response.token)
@@ -45,7 +46,7 @@ export default ({ login_form, loginUser, switchTab }) => {
     }
     response.error && setModalContentAndShow(response.error)
     setRequestType(false)
-  }, [response])
+  }, [response, error])
   return loading ? <Loader /> : (
     <FormControl fullWidth>
       <LoginTextField 
